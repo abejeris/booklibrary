@@ -1,3 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: orange;
+  font-family: "Roboto Slab", serif;
+}
+body h1 {
+  text-align: center;
+}
+body .container {
+  min-width: 302px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid black;
+}
+body .container .book {
+  background-color: beige;
+  border: 1px solid darkgoldenrod;
+  margin: 10px;
+  width: 40%;
+  min-width: 400px;
+  max-width: 500px;
+  display: flex;
+}
+body .container .book .topContainer {
+  padding: 10px;
+  width: 50%;
+}
+body .container .book .topContainer img {
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+body .container .book .bottomContainer {
+  margin: 10px 10px 10px 0px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+}
+body .container .book .bottomContainer .title {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+body .container .book .bottomContainer .author,
+body .container .book .bottomContainer .category,
+body .container .book .bottomContainer .year,
+body .container .book .bottomContainer .price {
+  font-weight: 400;
+}
+body .container .book .bottomContainer .buttons {
+  display: flex;
+  width: 100%;
+}
+body .container .book .bottomContainer .buttons #bookEdit {
+  width: 50%;
+  padding: 5px 0;
+  margin: 5px 5px 5px 10px;
+}
+body .container .book .bottomContainer .buttons #bookDelete {
+  width: 50%;
+  padding: 5px 0;
+  margin: 5px 10px 5px 5px;
 }/*# sourceMappingURL=style.css.map */
