@@ -1,4 +1,8 @@
+let addedBooks = JSON.parse(localStorage.getItem("books")) || [];
+
+const noBookText = document.querySelector("#noBookText");
 const addBook = document.querySelector("#add");
+const addNewBookText = document.querySelector("#addNewBook");
 const bookTitle = document.querySelector("#title");
 const bookAuthor = document.querySelector("#author");
 const bookCategory = document.querySelector("#category");
@@ -11,56 +15,80 @@ const sortCategory = document.querySelector("#sortCategory");
 const sortPrice = document.querySelector("#sortPrice");
 const container = document.querySelector(".container");
 const bookContainer = document.querySelector(".book");
-const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
 
 addButton.addEventListener("click", function (e) {
 	e.preventDefault();
-	const newBook = {
-		title: `${bookTitle.value}`,
-		author: `${bookAuthor.value}`,
-		category: `${bookCategory.value}`,
-		year: `${bookYear.value}`,
-		cover: `${bookCover.value}`,
-	};
-	addedBooks.push(newBook);
-	localStorage.setItem("book", JSON.stringify(addedBooks));
+	const title = bookTitle.value;
+	const author = bookAuthor.value;
+	const category = bookCategory.value;
+	const year = bookYear.value;
+	const price = bookPrice.value;
+	const cover = bookCover.value;
 
-	const bookDiv = document.createElement("div");
-	bookDiv.classList.add("book");
-	const topContainer = document.createElement("div");
-	topContainer.classList.add("topContainer");
-	const image = document.createElement("img");
-	image.src =
-		"https://images.unsplash.com/photo-1681025243141-25cd6f243a13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80";
-	const bottomContainer = document.createElement("div");
-	bottomContainer.classList.add("bottomContainer");
-	const title = document.createElement("h4");
-	title.classList.add("title");
-	title.textContent = bookTitle.value;
-	const author = document.createElement("h4");
-	author.classList.add("author");
-	author.textContent = bookAuthor.value;
-	const category = document.createElement("h4");
-	category.classList.add("category");
-	category.textContent = bookCategory.value;
-	const year = document.createElement("h4");
-	year.classList.add("year");
-	year.textContent = bookYear.value;
-	const price = document.createElement("h4");
-	price.classList.add("price");
-	price.textContent = bookPrice.value;
-	const buttons = document.createElement("div");
-	buttons.classList.add("buttons");
-	const editButton = document.createElement("button");
-	editButton.setAttribute("id", "bookEdit");
-	editButton.innerText = "EDIT";
-	const deleteButton = document.createElement("button");
-	deleteButton.setAttribute("id", "bookDelete");
-	deleteButton.innerText = "DELETE";
-	topContainer.append(image);
-	buttons.append(editButton, deleteButton);
-	bottomContainer.append(title, author, category, year, price, buttons);
-	bookDiv.append(topContainer, bottomContainer);
-	container.append(bookDiv);
-	addBook.reset();
+	if (title && author && category && year && price && cover) {
+		const newBook = {
+			title: title,
+			author: author,
+			category: category,
+			year: year,
+			price: price,
+			cover: cover,
+		};
+		addedBooks.push(newBook);
+		localStorage.setItem("books", JSON.stringify(addedBooks));
+		displayBooks();
+		addBook.reset();
+	} else {
+		addNewBookText.textContent = "PLEASE ADD ALL VALUES";
+		addNewBookText.style.color = "red";
+	}
 });
+
+function displayBooks() {
+	container.innerHTML = "";
+	for (let i = 0; i < addedBooks.length; i++) {
+		const book = addedBooks[i];
+		const bookDiv = document.createElement("div");
+		bookDiv.classList.add("book");
+		const topContainer = document.createElement("div");
+		topContainer.classList.add("topContainer");
+		const image = document.createElement("img");
+		image.src = book.cover;
+		const bottomContainer = document.createElement("div");
+		bottomContainer.classList.add("bottomContainer");
+		const title = document.createElement("h4");
+		title.classList.add("title");
+		title.textContent = book.title;
+		const author = document.createElement("h4");
+		author.classList.add("author");
+		author.textContent = book.author;
+		const category = document.createElement("h4");
+		category.classList.add("category");
+		category.textContent = book.category;
+		const year = document.createElement("h4");
+		year.classList.add("year");
+		year.textContent = book.year;
+		const price = document.createElement("h4");
+		price.classList.add("price");
+		price.textContent = book.price;
+		const buttons = document.createElement("div");
+		buttons.classList.add("buttons");
+		const editButton = document.createElement("button");
+		editButton.setAttribute("id", "bookEdit");
+		editButton.innerText = "EDIT";
+		const deleteButton = document.createElement("button");
+		deleteButton.setAttribute("id", "bookDelete");
+		deleteButton.innerText = "DELETE";
+		topContainer.append(image);
+		buttons.append(editButton, deleteButton);
+		bottomContainer.append(title, author, category, year, price, buttons);
+		bookDiv.append(topContainer, bottomContainer);
+		container.append(bookDiv);
+	}
+	if (addedBooks.length === 0) {
+		noBookText.innerHTML =
+			"No books to display, please add more books to your list";
+	} else noBookText.innerHTML = "";
+}
+
+displayBooks();
