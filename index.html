@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>MBL</title>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -17,14 +17,36 @@
 		<nav>
 			<h2>My Book Library</h2>
 			<p>Add new book</p>
+			<form id="add">
+				<label for="title">Title:</label>
+				<input type="text" name="title" id="title" />
+				<br />
+				<label for="author">Author:</label>
+				<input type="text" name="author" id="author" />
+				<br />
+				<label for="category">Category:</label>
+				<input type="text" name="category" id="category" />
+				<br />
+				<label for="year">Year:</label>
+				<input type="number" name="year" id="year" />
+				<br />
+				<label for="price">Price:</label>
+				<input type="text" name="price" id="price" />
+				<br />
+				<label for="cover">Cover:</label>
+				<input type="text" name="cover" id="cover" />
+				<button id="addButton">Add book to library</button>
+			</form>
 			<form>
 				<label for="search">Search:</label>
 				<input type="text" id="search" name="search" />
 				<button id="search" type="submit" name="search">Search the book</button>
 			</form>
-			<p>Sort books by Author</p>
-			<p>Sort books by Category</p>
-			<p>Sort books by Price</p>
+			<div class="sort">
+				<p id="sortAuthor">Sort books by Author</p>
+				<p id="sortCategory">Sort books by Category</p>
+				<p id="sortPrice">Sort books by Price</p>
+			</div>
 		</nav>
 		<h1>My Book Library</h1>
 
