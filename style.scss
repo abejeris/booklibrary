@@ -5,8 +5,53 @@
 	padding: 0;
 }
 body {
-	background-color: orange;
+	background-color: #f0ebe3;
 	font-family: "Roboto Slab", serif;
+
+	nav {
+		height: 100px;
+		background-color: #7d9d9c;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		h2 {
+			font-size: 18px;
+			color: #f0ebe3;
+		}
+		button {
+			border: 1px solid #576f72;
+			border-radius: 5px;
+			background-color: #576f72;
+			color: white;
+			padding: 10px;
+		}
+	}
+	.addForm {
+		height: 250px;
+		background-color: #e4dccf;
+		display: flex;
+		justify-content: center;
+
+		#add {
+			width: 60%;
+			display: flex;
+			flex-direction: column;
+
+			.yearandprice {
+				display: flex;
+				justify-content: space-between;
+
+				.year {
+					width: 50%;
+				}
+				.price {
+					text-align: right;
+					width: 50%;
+				}
+			}
+		}
+	}
 
 	h1 {
 		text-align: center;
@@ -18,11 +63,10 @@ body {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
-		border: 1px solid black;
 
 		.book {
-			background-color: beige;
-			border: 1px solid darkgoldenrod;
+			background-color: #e4dccf;
+
 			margin: 10px;
 			width: 40%;
 			min-width: 400px;
@@ -35,6 +79,8 @@ body {
 
 				img {
 					display: block;
+					object-fit: cover;
+					height: 100%;
 					width: 100%;
 					margin: auto;
 				}
@@ -69,11 +115,19 @@ body {
 					.bookEdit {
 						width: 50%;
 						padding: 5px 0;
+						background-color: #576f72;
+						color: white;
+						border: 1px solid #576f72;
+						border-radius: 5px;
 						margin: 5px 5px 5px 10px;
 					}
 					.bookDelete {
 						width: 50%;
 						padding: 5px 0;
+						background-color: #576f72;
+						color: white;
+						border: 1px solid #576f72;
+						border-radius: 5px;
 						margin: 5px 10px 5px 5px;
 					}
 				}

@@ -5,8 +5,48 @@
 }
 
 body {
-  background-color: orange;
+  background-color: #f0ebe3;
   font-family: "Roboto Slab", serif;
+}
+body nav {
+  height: 100px;
+  background-color: #7d9d9c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body nav h2 {
+  font-size: 18px;
+  color: #f0ebe3;
+}
+body nav button {
+  border: 1px solid #576f72;
+  border-radius: 5px;
+  background-color: #576f72;
+  color: white;
+  padding: 10px;
+}
+body .addForm {
+  height: 250px;
+  background-color: #e4dccf;
+  display: flex;
+  justify-content: center;
+}
+body .addForm #add {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+body .addForm #add .yearandprice {
+  display: flex;
+  justify-content: space-between;
+}
+body .addForm #add .yearandprice .year {
+  width: 50%;
+}
+body .addForm #add .yearandprice .price {
+  text-align: right;
+  width: 50%;
 }
 body h1 {
   text-align: center;
@@ -17,11 +57,9 @@ body .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border: 1px solid black;
 }
 body .container .book {
-  background-color: beige;
-  border: 1px solid darkgoldenrod;
+  background-color: #e4dccf;
   margin: 10px;
   width: 40%;
   min-width: 400px;
@@ -34,6 +72,9 @@ body .container .book .topContainer {
 }
 body .container .book .topContainer img {
   display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
   width: 100%;
   margin: auto;
 }
@@ -65,10 +106,18 @@ body .container .book .bottomContainer .buttons {
 body .container .book .bottomContainer .buttons .bookEdit {
   width: 50%;
   padding: 5px 0;
+  background-color: #576f72;
+  color: white;
+  border: 1px solid #576f72;
+  border-radius: 5px;
   margin: 5px 5px 5px 10px;
 }
 body .container .book .bottomContainer .buttons .bookDelete {
   width: 50%;
   padding: 5px 0;
+  background-color: #576f72;
+  color: white;
+  border: 1px solid #576f72;
+  border-radius: 5px;
   margin: 5px 10px 5px 5px;
 }/*# sourceMappingURL=style.css.map */
