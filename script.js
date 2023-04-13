@@ -63,11 +63,12 @@ function displayBooks() {
 		topContainer.classList.add("topContainer");
 		const image = document.createElement("img");
 		image.src = book.cover;
+		image.alt = "book cover";
 		const bottomContainer = document.createElement("div");
 		bottomContainer.classList.add("bottomContainer");
 		const title = document.createElement("h4");
 		title.classList.add("title");
-		title.textContent = book.title.toUppercase;
+		title.textContent = book.title.toUpperCase();
 		const author = document.createElement("h4");
 		author.classList.add("author");
 		author.textContent = book.author;
@@ -79,17 +80,12 @@ function displayBooks() {
 		year.textContent = book.year;
 		const price = document.createElement("h4");
 		price.classList.add("price");
-		price.textContent = book.price;
+		price.textContent = `$ ${book.price}`;
 		const buttons = document.createElement("div");
 		buttons.classList.add("buttons");
-		const editButton = document.createElement("button");
-		editButton.classList.add("bookEdit");
-		editButton.innerText = "EDIT";
-		const deleteButton = document.createElement("button");
-		deleteButton.classList.add("bookDelete");
-		deleteButton.innerText = "DELETE";
+		buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button> 
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
 		topContainer.append(image);
-		buttons.append(editButton, deleteButton);
 		bottomContainer.append(title, author, category, year, price, buttons);
 		bookDiv.append(topContainer, bottomContainer);
 		container.append(bookDiv);
@@ -100,7 +96,10 @@ function displayBooks() {
 	} else noBookText.innerHTML = "";
 }
 
-displayBooks();
-document.onload = function () {
+function deleteBook(index) {
+	addedBooks.splice(index, 1);
+	localStorage.setItem("books", JSON.stringify(addedBooks));
 	displayBooks();
-};
+}
+
+displayBooks();
