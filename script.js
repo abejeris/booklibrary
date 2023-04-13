@@ -1,5 +1,4 @@
 let addedBooks = JSON.parse(localStorage.getItem("books")) || [];
-
 const noBookText = document.querySelector("#noBookText");
 const addBook = document.querySelector("#add");
 const addNewBookText = document.querySelector("#addNewBook");
@@ -15,6 +14,8 @@ const sortCategory = document.querySelector("#sortCategory");
 const sortPrice = document.querySelector("#sortPrice");
 const container = document.querySelector(".container");
 const bookContainer = document.querySelector(".book");
+const editButton = document.querySelector("#bookEdit");
+const deleteButton = document.querySelector("#bookDelete");
 
 addButton.addEventListener("click", function (e) {
 	e.preventDefault();
@@ -82,10 +83,10 @@ function displayBooks() {
 		const buttons = document.createElement("div");
 		buttons.classList.add("buttons");
 		const editButton = document.createElement("button");
-		editButton.setAttribute("id", "bookEdit");
+		editButton.classList.add("bookEdit");
 		editButton.innerText = "EDIT";
 		const deleteButton = document.createElement("button");
-		deleteButton.setAttribute("id", "bookDelete");
+		deleteButton.classList.add("bookDelete");
 		deleteButton.innerText = "DELETE";
 		topContainer.append(image);
 		buttons.append(editButton, deleteButton);
@@ -100,3 +101,6 @@ function displayBooks() {
 }
 
 displayBooks();
+document.onload = function () {
+	displayBooks();
+};
