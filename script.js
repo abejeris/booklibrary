@@ -25,7 +25,15 @@ addButton.addEventListener("click", function (e) {
 	const price = bookPrice.value;
 	const cover = bookCover.value;
 
-	if (title && author && category && year && price && cover) {
+	if (
+		title &&
+		author &&
+		category &&
+		year >= 0 &&
+		year <= 2024 &&
+		price >= 0 &&
+		cover
+	) {
 		const newBook = {
 			title: title,
 			author: author,
@@ -39,7 +47,7 @@ addButton.addEventListener("click", function (e) {
 		displayBooks();
 		addBook.reset();
 	} else {
-		addNewBookText.textContent = "PLEASE ADD ALL VALUES";
+		addNewBookText.textContent = "PLEASE CHECK ALL VALUES";
 		addNewBookText.style.color = "red";
 	}
 });
@@ -58,7 +66,7 @@ function displayBooks() {
 		bottomContainer.classList.add("bottomContainer");
 		const title = document.createElement("h4");
 		title.classList.add("title");
-		title.textContent = book.title;
+		title.textContent = book.title.toUppercase;
 		const author = document.createElement("h4");
 		author.classList.add("author");
 		author.textContent = book.author;
