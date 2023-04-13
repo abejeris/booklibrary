@@ -17,8 +17,7 @@ const bookContainer = document.querySelector(".book");
 const editButton = document.querySelector("#bookEdit");
 const deleteButton = document.querySelector("#bookDelete");
 
-addButton.addEventListener("click", function (e) {
-	e.preventDefault();
+addButton.addEventListener("click", function () {
 	const title = bookTitle.value;
 	const author = bookAuthor.value;
 	const category = bookCategory.value;
@@ -68,7 +67,7 @@ function displayBooks() {
 		bottomContainer.classList.add("bottomContainer");
 		const title = document.createElement("h4");
 		title.classList.add("title");
-		title.textContent = book.title.toUpperCase();
+		title.textContent = book.title;
 		const author = document.createElement("h4");
 		author.classList.add("author");
 		author.textContent = book.author;
@@ -98,6 +97,24 @@ function displayBooks() {
 
 function deleteBook(index) {
 	addedBooks.splice(index, 1);
+	localStorage.setItem("books", JSON.stringify(addedBooks));
+	displayBooks();
+}
+
+function editBook(index) {
+	let book = addedBooks[index];
+	let newTitle = prompt("Edit the Title", book.title);
+	book.title = newTitle;
+	let newAuthor = prompt("Edit the Author", book.author);
+	book.author = newAuthor;
+	let newCategory = prompt("Edit the Category", book.category);
+	book.category = newCategory;
+	let newYear = prompt("Edit the Year", book.year);
+	book.year = newYear;
+	let newPrice = prompt("Edit the Price", book.price);
+	book.price = newPrice;
+	let newCover = prompt("Edit the Cover", book.cover);
+	book.cover = newCover;
 	localStorage.setItem("books", JSON.stringify(addedBooks));
 	displayBooks();
 }

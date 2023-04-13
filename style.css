@@ -56,6 +56,7 @@ body .container .book .bottomContainer .category,
 body .container .book .bottomContainer .year,
 body .container .book .bottomContainer .price {
   font-weight: 400;
+  text-align: center;
 }
 body .container .book .bottomContainer .buttons {
   display: flex;
