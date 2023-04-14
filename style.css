@@ -18,14 +18,49 @@ body nav {
 body nav h2 {
   font-size: 18px;
   color: #f0ebe3;
+  text-align: center;
 }
-body nav button {
+body nav #topAddButton {
   border: 1px solid #576f72;
   border-radius: 5px;
   background-color: #576f72;
   color: #f0ebe3;
   font-family: "Roboto Slab", serif;
   padding: 10px;
+}
+body nav #topAddButton:hover {
+  color: #e4dccf;
+  box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+}
+body nav #topAddButton:active {
+  color: #7d9d9c;
+}
+body nav #addNewBook {
+  text-align: center;
+}
+body nav #searchForm {
+  display: flex;
+}
+body nav #searchForm #search {
+  border: 1px solid #576f72;
+  border-radius: 5px 0 0 5px;
+  padding-left: 5px;
+  font-family: "Roboto Slab", serif;
+}
+body nav #searchForm #searchButton {
+  background-color: #576f72;
+  border: 1px solid #576f72;
+  border-radius: 0 5px 5px 0;
+  color: #f0ebe3;
+  font-family: "Roboto Slab", serif;
+  padding: 10px;
+}
+body nav #searchForm #searchButton:hover {
+  color: #e4dccf;
+  box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+}
+body nav #searchForm #searchButton:active {
+  color: #7d9d9c;
 }
 body .addmaster {
   height: 0;
@@ -60,6 +95,8 @@ body .addmaster .addForm #add .cover input {
   border: 1px solid #7d9d9c;
   height: 25px;
   border-radius: 5px;
+  padding-left: 5px;
+  font-family: "Roboto Slab", serif;
 }
 body .addmaster .addForm #add .yearandprice {
   display: flex;
@@ -70,6 +107,8 @@ body .addmaster .addForm #add .yearandprice input {
   border: 1px solid #7d9d9c;
   height: 25px;
   border-radius: 5px;
+  padding-left: 5px;
+  font-family: "Roboto Slab", serif;
 }
 body .addmaster .addForm #add .yearandprice .year,
 body .addmaster .addForm #add .yearandprice .price {
@@ -96,6 +135,9 @@ body h1 {
   text-align: center;
   color: #576f72;
   margin-top: 10px;
+}
+body #noBookText {
+  text-align: center;
 }
 body .container {
   min-width: 302px;
@@ -159,6 +201,12 @@ body .container .book .bottomContainer .buttons .bookEdit {
   margin: 5px 5px 5px 10px;
   font-family: "Roboto Slab", serif;
 }
+body .container .book .bottomContainer .buttons .bookEdit:hover {
+  box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+}
+body .container .book .bottomContainer .buttons .bookEdit:active {
+  color: #7d9d9c;
+}
 body .container .book .bottomContainer .buttons .bookDelete {
   width: 50%;
   padding: 5px 0;
@@ -168,4 +216,10 @@ body .container .book .bottomContainer .buttons .bookDelete {
   border-radius: 5px;
   margin: 5px 10px 5px 5px;
   font-family: "Roboto Slab", serif;
+}
+body .container .book .bottomContainer .buttons .bookDelete:hover {
+  box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+}
+body .container .book .bottomContainer .buttons .bookDelete:active {
+  color: #7d9d9c;
 }/*# sourceMappingURL=style.css.map */

@@ -20,14 +20,18 @@
 			<p id="addNewBook"></p>
 
 			<form id="searchForm">
-				<label for="search">Search:</label>
-				<input type="text" id="search" name="search" />
-				<button id="search" name="search">SEARCH</button>
+				<input
+					type="text"
+					id="search"
+					name="search"
+					placeholder="Search for book"
+				/>
+				<button id="searchButton" name="search">SEARCH</button>
 			</form>
 			<div class="sort">
-				<p id="sortAuthor">Sort books by Author</p>
-				<p id="sortCategory">Sort books by Category</p>
-				<p id="sortPrice">Sort books by Price</p>
+				<p id="sortAuthor">Sort by Author</p>
+				<p id="sortCategory">Sort by Genre</p>
+				<p id="sortPrice">Sort by Price</p>
 			</div>
 		</nav>
 		<div class="addmaster">
@@ -35,33 +39,58 @@
 				<form id="add">
 					<div class="title">
 						<label for="title">Title:</label>
-						<input type="text" name="title" id="title" />
+						<input
+							type="text"
+							name="title"
+							id="title"
+							placeholder="Enter the title of the book"
+						/>
 					</div>
 
 					<div class="author">
 						<label for="author">Author:</label>
-						<input type="text" name="author" id="author" />
+						<input
+							type="text"
+							name="author"
+							id="author"
+							placeholder="Who is the author of the book?"
+						/>
 					</div>
 
 					<div class="category">
-						<label for="category">Category:</label>
-						<input type="text" name="category" id="category" />
+						<label for="category">Genre:</label>
+						<input
+							type="text"
+							name="category"
+							id="category"
+							placeholder="Here goes genre of the book"
+						/>
 					</div>
 
 					<div class="yearandprice">
 						<div class="year">
 							<label for="year">Year:</label>
-							<input type="number" name="year" id="year" />
+							<input
+								type="number"
+								name="year"
+								id="year"
+								placeholder="Release year"
+							/>
 						</div>
 						<div class="price">
 							<label for="price">Price:</label>
-							<input type="number" name="price" id="price" />
+							<input type="number" name="price" id="price" placeholder="RRP?" />
 						</div>
 					</div>
 
 					<div class="cover">
 						<label for="cover">Cover:</label>
-						<input type="text" name="cover" id="cover" />
+						<input
+							type="text"
+							name="cover"
+							id="cover"
+							placeholder="Enter full http address for book cover image "
+						/>
 					</div>
 
 					<button id="addButton">ADD BOOK TO YOUR LIBRARY</button>
