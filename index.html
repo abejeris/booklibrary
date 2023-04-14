@@ -16,7 +16,7 @@
 	<body>
 		<nav>
 			<h2>MY BOOK LIBRARY</h2>
-			<button>ADD NEW BOOK</button>
+			<button id="topAddButton">ADD NEW BOOK</button>
 			<p id="addNewBook"></p>
 
 			<form id="searchForm">
@@ -30,41 +30,43 @@
 				<p id="sortPrice">Sort books by Price</p>
 			</div>
 		</nav>
-		<div class="addForm">
-			<form id="add">
-				<div class="title">
-					<label for="title">Title:</label>
-					<input type="text" name="title" id="title" />
-				</div>
-
-				<div class="author">
-					<label for="author">Author:</label>
-					<input type="text" name="author" id="author" />
-				</div>
-
-				<div class="category">
-					<label for="category">Category:</label>
-					<input type="text" name="category" id="category" />
-				</div>
-
-				<div class="yearandprice">
-					<div class="year">
-						<label for="year">Year:</label>
-						<input type="number" name="year" id="year" />
+		<div class="addmaster">
+			<div class="addForm">
+				<form id="add">
+					<div class="title">
+						<label for="title">Title:</label>
+						<input type="text" name="title" id="title" />
 					</div>
-					<div class="price">
-						<label for="price">Price:</label>
-						<input type="number" name="price" id="price" />
+
+					<div class="author">
+						<label for="author">Author:</label>
+						<input type="text" name="author" id="author" />
 					</div>
-				</div>
 
-				<div class="cover">
-					<label for="cover">Cover:</label>
-					<input type="text" name="cover" id="cover" />
-				</div>
+					<div class="category">
+						<label for="category">Category:</label>
+						<input type="text" name="category" id="category" />
+					</div>
 
-				<button id="addButton">ADD BOOK TO YOUR LIBRARY</button>
-			</form>
+					<div class="yearandprice">
+						<div class="year">
+							<label for="year">Year:</label>
+							<input type="number" name="year" id="year" />
+						</div>
+						<div class="price">
+							<label for="price">Price:</label>
+							<input type="number" name="price" id="price" />
+						</div>
+					</div>
+
+					<div class="cover">
+						<label for="cover">Cover:</label>
+						<input type="text" name="cover" id="cover" />
+					</div>
+
+					<button id="addButton">ADD BOOK TO YOUR LIBRARY</button>
+				</form>
+			</div>
 		</div>
 		<h1>My Book Library</h1>
 		<p id="noBookText"></p>

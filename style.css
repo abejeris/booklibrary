@@ -27,12 +27,18 @@ body nav button {
   font-family: "Roboto Slab", serif;
   padding: 10px;
 }
-body .addForm {
+body .addmaster {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+body .addmaster .addForm {
   background-color: #e4dccf;
   display: flex;
   justify-content: center;
 }
-body .addForm #add {
+body .addmaster .addForm #add {
   min-width: 250px;
   width: 450px;
   margin: 10px;
@@ -40,37 +46,37 @@ body .addForm #add {
   flex-direction: column;
   color: #576f72;
 }
-body .addForm #add .title,
-body .addForm #add .author,
-body .addForm #add .category,
-body .addForm #add .cover {
+body .addmaster .addForm #add .title,
+body .addmaster .addForm #add .author,
+body .addmaster .addForm #add .category,
+body .addmaster .addForm #add .cover {
   display: flex;
   flex-direction: column;
 }
-body .addForm #add .title input,
-body .addForm #add .author input,
-body .addForm #add .category input,
-body .addForm #add .cover input {
+body .addmaster .addForm #add .title input,
+body .addmaster .addForm #add .author input,
+body .addmaster .addForm #add .category input,
+body .addmaster .addForm #add .cover input {
   border: 1px solid #7d9d9c;
   height: 25px;
   border-radius: 5px;
 }
-body .addForm #add .yearandprice {
+body .addmaster .addForm #add .yearandprice {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-body .addForm #add .yearandprice input {
+body .addmaster .addForm #add .yearandprice input {
   border: 1px solid #7d9d9c;
   height: 25px;
   border-radius: 5px;
 }
-body .addForm #add .yearandprice .year,
-body .addForm #add .yearandprice .price {
+body .addmaster .addForm #add .yearandprice .year,
+body .addmaster .addForm #add .yearandprice .price {
   display: flex;
   flex-direction: column;
 }
-body .addForm #add #addButton {
+body .addmaster .addForm #add #addButton {
   padding: 10px;
   margin: 10px 0;
   background-color: #576f72;
@@ -79,8 +85,17 @@ body .addForm #add #addButton {
   color: #f0ebe3;
   font-family: "Roboto Slab", serif;
 }
+body .addmaster.hidden {
+  height: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s ease-out, opacity 0.3s ease-out;
+}
 body h1 {
   text-align: center;
+  color: #576f72;
+  margin-top: 10px;
 }
 body .container {
   min-width: 302px;
