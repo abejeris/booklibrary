@@ -23,32 +23,60 @@ body {
 			border: 1px solid #576f72;
 			border-radius: 5px;
 			background-color: #576f72;
-			color: white;
+			color: #f0ebe3;
+			font-family: "Roboto Slab", serif;
 			padding: 10px;
 		}
 	}
 	.addForm {
-		height: 250px;
 		background-color: #e4dccf;
 		display: flex;
 		justify-content: center;
 
 		#add {
-			width: 60%;
+			min-width: 250px;
+			width: 450px;
+			margin: 10px;
 			display: flex;
 			flex-direction: column;
+			color: #576f72;
 
+			.title,
+			.author,
+			.category,
+			.cover {
+				display: flex;
+				flex-direction: column;
+
+				input {
+					border: 1px solid #7d9d9c;
+					height: 25px;
+					border-radius: 5px;
+				}
+			}
 			.yearandprice {
 				display: flex;
+				flex-wrap: wrap;
 				justify-content: space-between;
-
-				.year {
-					width: 50%;
+				input {
+					border: 1px solid #7d9d9c;
+					height: 25px;
+					border-radius: 5px;
 				}
+				.year,
 				.price {
-					text-align: right;
-					width: 50%;
+					display: flex;
+					flex-direction: column;
 				}
+			}
+			#addButton {
+				padding: 10px;
+				margin: 10px 0;
+				background-color: #576f72;
+				border: 1px solid #576f72;
+				border-radius: 5px;
+				color: #f0ebe3;
+				font-family: "Roboto Slab", serif;
 			}
 		}
 	}
@@ -116,19 +144,21 @@ body {
 						width: 50%;
 						padding: 5px 0;
 						background-color: #576f72;
-						color: white;
+						color: #f0ebe3;
 						border: 1px solid #576f72;
 						border-radius: 5px;
 						margin: 5px 5px 5px 10px;
+						font-family: "Roboto Slab", serif;
 					}
 					.bookDelete {
 						width: 50%;
 						padding: 5px 0;
 						background-color: #576f72;
-						color: white;
+						color: #f0ebe3;
 						border: 1px solid #576f72;
 						border-radius: 5px;
 						margin: 5px 10px 5px 5px;
+						font-family: "Roboto Slab", serif;
 					}
 				}
 			}
