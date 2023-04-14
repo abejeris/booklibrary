@@ -16,6 +16,12 @@ const container = document.querySelector(".container");
 const bookContainer = document.querySelector(".book");
 const editButton = document.querySelector("#bookEdit");
 const deleteButton = document.querySelector("#bookDelete");
+const topAddButton = document.querySelector("#topAddButton");
+
+topAddButton.addEventListener("click", function () {
+	const div = document.querySelector(".addmaster");
+	div.classList.toggle("hidden");
+});
 
 addButton.addEventListener("click", function () {
 	const title = bookTitle.value;

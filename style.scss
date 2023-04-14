@@ -28,61 +28,76 @@ body {
 			padding: 10px;
 		}
 	}
-	.addForm {
-		background-color: #e4dccf;
-		display: flex;
-		justify-content: center;
+	.addmaster {
+		height: 0;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 
-		#add {
-			min-width: 250px;
-			width: 450px;
-			margin: 10px;
+		.addForm {
+			background-color: #e4dccf;
 			display: flex;
-			flex-direction: column;
-			color: #576f72;
+			justify-content: center;
 
-			.title,
-			.author,
-			.category,
-			.cover {
+			#add {
+				min-width: 250px;
+				width: 450px;
+				margin: 10px;
 				display: flex;
 				flex-direction: column;
+				color: #576f72;
 
-				input {
-					border: 1px solid #7d9d9c;
-					height: 25px;
-					border-radius: 5px;
-				}
-			}
-			.yearandprice {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				input {
-					border: 1px solid #7d9d9c;
-					height: 25px;
-					border-radius: 5px;
-				}
-				.year,
-				.price {
+				.title,
+				.author,
+				.category,
+				.cover {
 					display: flex;
 					flex-direction: column;
+
+					input {
+						border: 1px solid #7d9d9c;
+						height: 25px;
+						border-radius: 5px;
+					}
 				}
-			}
-			#addButton {
-				padding: 10px;
-				margin: 10px 0;
-				background-color: #576f72;
-				border: 1px solid #576f72;
-				border-radius: 5px;
-				color: #f0ebe3;
-				font-family: "Roboto Slab", serif;
+				.yearandprice {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					input {
+						border: 1px solid #7d9d9c;
+						height: 25px;
+						border-radius: 5px;
+					}
+					.year,
+					.price {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+				#addButton {
+					padding: 10px;
+					margin: 10px 0;
+					background-color: #576f72;
+					border: 1px solid #576f72;
+					border-radius: 5px;
+					color: #f0ebe3;
+					font-family: "Roboto Slab", serif;
+				}
 			}
 		}
 	}
-
+	.addmaster.hidden {
+		height: 100%;
+		display: block;
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0.3s ease-out, opacity 0.3s ease-out;
+	}
 	h1 {
 		text-align: center;
+		color: #576f72;
+		margin-top: 10px;
 	}
 
 	.container {
