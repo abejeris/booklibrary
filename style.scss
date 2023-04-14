@@ -18,14 +18,52 @@ body {
 		h2 {
 			font-size: 18px;
 			color: #f0ebe3;
+			text-align: center;
 		}
-		button {
+		#topAddButton {
 			border: 1px solid #576f72;
 			border-radius: 5px;
 			background-color: #576f72;
 			color: #f0ebe3;
 			font-family: "Roboto Slab", serif;
 			padding: 10px;
+
+			&:hover {
+				color: #e4dccf;
+				box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+			}
+			&:active {
+				color: #7d9d9c;
+			}
+		}
+		#addNewBook {
+			text-align: center;
+		}
+		#searchForm {
+			display: flex;
+
+			#search {
+				border: 1px solid #576f72;
+				border-radius: 5px 0 0 5px;
+				padding-left: 5px;
+				font-family: "Roboto Slab", serif;
+			}
+			#searchButton {
+				background-color: #576f72;
+				border: 1px solid #576f72;
+				border-radius: 0 5px 5px 0;
+				color: #f0ebe3;
+				font-family: "Roboto Slab", serif;
+				padding: 10px;
+
+				&:hover {
+					color: #e4dccf;
+					box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+				}
+				&:active {
+					color: #7d9d9c;
+				}
+			}
 		}
 	}
 	.addmaster {
@@ -58,6 +96,8 @@ body {
 						border: 1px solid #7d9d9c;
 						height: 25px;
 						border-radius: 5px;
+						padding-left: 5px;
+						font-family: "Roboto Slab", serif;
 					}
 				}
 				.yearandprice {
@@ -68,6 +108,8 @@ body {
 						border: 1px solid #7d9d9c;
 						height: 25px;
 						border-radius: 5px;
+						padding-left: 5px;
+						font-family: "Roboto Slab", serif;
 					}
 					.year,
 					.price {
@@ -98,6 +140,10 @@ body {
 		text-align: center;
 		color: #576f72;
 		margin-top: 10px;
+	}
+
+	#noBookText {
+		text-align: center;
 	}
 
 	.container {
@@ -164,6 +210,14 @@ body {
 						border-radius: 5px;
 						margin: 5px 5px 5px 10px;
 						font-family: "Roboto Slab", serif;
+
+						&:hover {
+							box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+						}
+
+						&:active {
+							color: #7d9d9c;
+						}
 					}
 					.bookDelete {
 						width: 50%;
@@ -174,6 +228,14 @@ body {
 						border-radius: 5px;
 						margin: 5px 10px 5px 5px;
 						font-family: "Roboto Slab", serif;
+
+						&:hover {
+							box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+						}
+
+						&:active {
+							color: #7d9d9c;
+						}
 					}
 				}
 			}

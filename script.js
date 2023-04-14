@@ -23,7 +23,8 @@ topAddButton.addEventListener("click", function () {
 	div.classList.toggle("hidden");
 });
 
-addButton.addEventListener("click", function () {
+addButton.addEventListener("click", function (e) {
+	e.preventDefault();
 	const title = bookTitle.value;
 	const author = bookAuthor.value;
 	const category = bookCategory.value;
@@ -54,7 +55,7 @@ addButton.addEventListener("click", function () {
 		addBook.reset();
 	} else {
 		addNewBookText.textContent = "PLEASE CHECK ALL VALUES";
-		addNewBookText.style.color = "red";
+		addNewBookText.style.color = "#e4dccf";
 	}
 });
 
