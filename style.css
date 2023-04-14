@@ -23,30 +23,61 @@ body nav button {
   border: 1px solid #576f72;
   border-radius: 5px;
   background-color: #576f72;
-  color: white;
+  color: #f0ebe3;
+  font-family: "Roboto Slab", serif;
   padding: 10px;
 }
 body .addForm {
-  height: 250px;
   background-color: #e4dccf;
   display: flex;
   justify-content: center;
 }
 body .addForm #add {
-  width: 60%;
+  min-width: 250px;
+  width: 450px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #576f72;
+}
+body .addForm #add .title,
+body .addForm #add .author,
+body .addForm #add .category,
+body .addForm #add .cover {
   display: flex;
   flex-direction: column;
 }
+body .addForm #add .title input,
+body .addForm #add .author input,
+body .addForm #add .category input,
+body .addForm #add .cover input {
+  border: 1px solid #7d9d9c;
+  height: 25px;
+  border-radius: 5px;
+}
 body .addForm #add .yearandprice {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
-body .addForm #add .yearandprice .year {
-  width: 50%;
+body .addForm #add .yearandprice input {
+  border: 1px solid #7d9d9c;
+  height: 25px;
+  border-radius: 5px;
 }
+body .addForm #add .yearandprice .year,
 body .addForm #add .yearandprice .price {
-  text-align: right;
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+body .addForm #add #addButton {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #576f72;
+  border: 1px solid #576f72;
+  border-radius: 5px;
+  color: #f0ebe3;
+  font-family: "Roboto Slab", serif;
 }
 body h1 {
   text-align: center;
@@ -107,17 +138,19 @@ body .container .book .bottomContainer .buttons .bookEdit {
   width: 50%;
   padding: 5px 0;
   background-color: #576f72;
-  color: white;
+  color: #f0ebe3;
   border: 1px solid #576f72;
   border-radius: 5px;
   margin: 5px 5px 5px 10px;
+  font-family: "Roboto Slab", serif;
 }
 body .container .book .bottomContainer .buttons .bookDelete {
   width: 50%;
   padding: 5px 0;
   background-color: #576f72;
-  color: white;
+  color: #f0ebe3;
   border: 1px solid #576f72;
   border-radius: 5px;
   margin: 5px 10px 5px 5px;
+  font-family: "Roboto Slab", serif;
 }/*# sourceMappingURL=style.css.map */
