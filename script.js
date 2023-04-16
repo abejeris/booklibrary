@@ -9,6 +9,7 @@ const bookYear = document.querySelector("#year");
 const bookPrice = document.querySelector("#price");
 const bookCover = document.querySelector("#cover");
 const addButton = document.querySelector("#addButton");
+const addButtonMobile = document.querySelector("#addButtonMobile");
 const sortAuthor = document.querySelector("#sortAuthor");
 const sortCategory = document.querySelector("#sortCategory");
 const sortPrice = document.querySelector("#sortPrice");
@@ -141,3 +142,8 @@ function myFunction() {
 }
 
 const icon = document.querySelector(".icon");
+
+addButtonMobile.addEventListener("click", function () {
+	const div = document.querySelector(".addmaster");
+	div.classList.toggle("hidden");
+});

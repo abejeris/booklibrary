@@ -34,6 +34,7 @@ body nav #topAddButton {
 body nav #topAddButton:hover {
   color: #e4dccf;
   box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+  cursor: pointer;
 }
 body nav #topAddButton:active {
   color: #7d9d9c;
@@ -62,6 +63,7 @@ body nav #searchForm #searchButton {
 body nav #searchForm #searchButton:hover {
   color: #e4dccf;
   box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+  cursor: pointer;
 }
 body nav #searchForm #searchButton:active {
   color: #7d9d9c;
@@ -84,6 +86,7 @@ body nav .sort p {
 }
 body nav .sort p:hover {
   color: #f0ebe3;
+  cursor: pointer;
 }
 body #myLinks {
   display: none;
@@ -150,6 +153,9 @@ body .addmaster .addForm #add #addButton {
   color: #f0ebe3;
   font-family: "Roboto Slab", serif;
 }
+body .addmaster .addForm #add #addButton:hover {
+  cursor: pointer;
+}
 body .addmaster.hidden {
   height: 100%;
   display: block;
@@ -193,7 +199,7 @@ body .container .book .topContainer img {
   margin: auto;
 }
 body .container .book .bottomContainer {
-  margin: 10px 10px 10px 0px;
+  margin: 10px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -273,8 +279,8 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     flex-direction: column;
     align-items: center;
   }
-  #myLinks .innerContainer #addButton {
-    margin: 10px;
+  #myLinks .innerContainer #addButtonMobile {
+    margin: 20px;
     padding: 10px;
     border: 1px solid #576f72;
     background-color: #576f72;
@@ -282,10 +288,11 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     color: #f0ebe3;
     font-family: "Roboto Slab", serif;
   }
-  #myLinks .innerContainer #addButton:hover {
+  #myLinks .innerContainer #addButtonMobile:hover {
     box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+    cursor: pointer;
   }
-  #myLinks .innerContainer #addButton:active {
+  #myLinks .innerContainer #addButtonMobile:active {
     color: #7d9d9c;
   }
   #myLinks .innerContainer #searchingForm {
@@ -311,6 +318,7 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
   }
   #myLinks .innerContainer #searchingForm #searchingButton:hover {
     box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+    cursor: pointer;
   }
   #myLinks .innerContainer #searchingForm #searchingButton:active {
     color: #7d9d9c;
@@ -319,11 +327,23 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #576f72;
+    margin: 20px;
   }
   #myLinks .innerContainer .sorting #sortAll,
   #myLinks .innerContainer .sorting #sortAuthor,
   #myLinks .innerContainer .sorting #sortCategory,
   #myLinks .innerContainer .sorting #sortPrice {
     margin: 5px;
+  }
+  #myLinks .innerContainer .sorting p:hover {
+    color: #7d9d9c;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 420px) {
+  .book {
+    flex-direction: column;
+    align-items: center;
   }
 }/*# sourceMappingURL=style.css.map */
