@@ -127,3 +127,17 @@ function editBook(index) {
 }
 
 displayBooks();
+
+function myFunction() {
+	const drop = document.querySelector("#myLinks");
+	const icon = document.querySelector(".icon");
+	if (drop.style.display === "block") {
+		icon.innerHTML = '<i class="fa-solid fa-bars"></i>';
+		drop.style.display = "none";
+	} else {
+		drop.style.display = "block";
+		icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+	}
+}
+
+const icon = document.querySelector(".icon");
