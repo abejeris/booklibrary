@@ -12,13 +12,15 @@ body nav {
   height: 100px;
   background-color: #7d9d9c;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
 }
 body nav h2 {
   font-size: 18px;
   color: #f0ebe3;
   text-align: center;
+  margin: 5px;
 }
 body nav #topAddButton {
   border: 1px solid #576f72;
@@ -27,6 +29,7 @@ body nav #topAddButton {
   color: #f0ebe3;
   font-family: "Roboto Slab", serif;
   padding: 10px;
+  margin: 5px 5px 5px 0;
 }
 body nav #topAddButton:hover {
   color: #e4dccf;
@@ -40,6 +43,7 @@ body nav #addNewBook {
 }
 body nav #searchForm {
   display: flex;
+  margin: 5px 5px 5px 0;
 }
 body nav #searchForm #search {
   border: 1px solid #576f72;
@@ -61,6 +65,28 @@ body nav #searchForm #searchButton:hover {
 }
 body nav #searchForm #searchButton:active {
   color: #7d9d9c;
+}
+body nav a {
+  display: none;
+}
+body nav .sort {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+body nav .sort h4 {
+  margin: 5px;
+  color: #576f72;
+}
+body nav .sort p {
+  margin: 5px;
+}
+body nav .sort p:hover {
+  color: #f0ebe3;
+}
+body #myLinks {
+  display: none;
 }
 body .addmaster {
   height: 0;
@@ -222,4 +248,82 @@ body .container .book .bottomContainer .buttons .bookDelete:hover {
 }
 body .container .book .bottomContainer .buttons .bookDelete:active {
   color: #7d9d9c;
+}
+
+@media screen and (max-width: 576px) {
+  #topAddButton,
+  #addNewBook {
+    display: none;
+  }
+  #searchForm #search,
+  #searchForm #searchButton {
+    display: none;
+  }
+  .sort h4,
+  .sort p {
+    display: none;
+  }
+  .icon {
+    display: block;
+    color: #f0ebe3;
+    font-size: 25px;
+  }
+  #myLinks .innerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #myLinks .innerContainer #addButton {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #576f72;
+    background-color: #576f72;
+    border-radius: 5px;
+    color: #f0ebe3;
+    font-family: "Roboto Slab", serif;
+  }
+  #myLinks .innerContainer #addButton:hover {
+    box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+  }
+  #myLinks .innerContainer #addButton:active {
+    color: #7d9d9c;
+  }
+  #myLinks .innerContainer #searchingForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #myLinks .innerContainer #searchingForm #search {
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+    border: 1px solid #7d9d9c;
+    border-radius: 5px;
+    font-family: "Roboto Slab", serif;
+  }
+  #myLinks .innerContainer #searchingForm #searchingButton {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #576f72;
+    border-radius: 5px;
+    font-family: "Roboto Slab", serif;
+    background-color: #576f72;
+    color: #f0ebe3;
+  }
+  #myLinks .innerContainer #searchingForm #searchingButton:hover {
+    box-shadow: 0px 5px 10px 0px rgb(87, 111, 114);
+  }
+  #myLinks .innerContainer #searchingForm #searchingButton:active {
+    color: #7d9d9c;
+  }
+  #myLinks .innerContainer .sorting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #myLinks .innerContainer .sorting #sortAll,
+  #myLinks .innerContainer .sorting #sortAuthor,
+  #myLinks .innerContainer .sorting #sortCategory,
+  #myLinks .innerContainer .sorting #sortPrice {
+    margin: 5px;
+  }
 }/*# sourceMappingURL=style.css.map */

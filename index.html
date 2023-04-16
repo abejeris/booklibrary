@@ -7,7 +7,10 @@
 		<title>MBL</title>
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
 		/>
 		<link rel="stylesheet" href="style.css" />
 
@@ -29,11 +32,37 @@
 				<button id="searchButton" name="search">SEARCH</button>
 			</form>
 			<div class="sort">
-				<p id="sortAuthor">Sort by Author</p>
-				<p id="sortCategory">Sort by Genre</p>
-				<p id="sortPrice">Sort by Price</p>
+				<h4 id="sortAll">Sort by:</h4>
+				<p id="sortAuthor">Author</p>
+				<p id="sortCategory">Genre</p>
+				<p id="sortPrice">Price</p>
 			</div>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa-solid fa-bars"></i>
+			</a>
 		</nav>
+		<div id="myLinks">
+			<div class="innerContainer">
+				<button id="addButton">ADD NEW BOOK</button>
+				<p id="addBook"></p>
+
+				<form id="searchingForm">
+					<input
+						type="text"
+						id="search"
+						name="search"
+						placeholder="Search for book"
+					/>
+					<button id="searchingButton" name="search">SEARCH</button>
+				</form>
+				<div class="sorting">
+					<h4 id="sortAll">Sort by:</h4>
+					<p id="sortAuthor">Author</p>
+					<p id="sortCategory">Genre</p>
+					<p id="sortPrice">Price</p>
+				</div>
+			</div>
+		</div>
 		<div class="addmaster">
 			<div class="addForm">
 				<form id="add">
