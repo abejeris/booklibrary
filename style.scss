@@ -34,6 +34,7 @@ body {
 			&:hover {
 				color: #e4dccf;
 				box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+				cursor: pointer;
 			}
 			&:active {
 				color: #7d9d9c;
@@ -63,6 +64,7 @@ body {
 				&:hover {
 					color: #e4dccf;
 					box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+					cursor: pointer;
 				}
 				&:active {
 					color: #7d9d9c;
@@ -87,6 +89,7 @@ body {
 
 				&:hover {
 					color: #f0ebe3;
+					cursor: pointer;
 				}
 			}
 		}
@@ -154,6 +157,10 @@ body {
 					border-radius: 5px;
 					color: #f0ebe3;
 					font-family: "Roboto Slab", serif;
+
+					&:hover {
+						cursor: pointer;
+					}
 				}
 			}
 		}
@@ -205,7 +212,7 @@ body {
 			}
 
 			.bottomContainer {
-				margin: 10px 10px 10px 0px;
+				margin: 10px;
 				background-color: white;
 				display: flex;
 				flex-direction: column;
@@ -304,8 +311,8 @@ body {
 			flex-direction: column;
 			align-items: center;
 
-			#addButton {
-				margin: 10px;
+			#addButtonMobile {
+				margin: 20px;
 				padding: 10px;
 				border: 1px solid #576f72;
 				background-color: #576f72;
@@ -315,6 +322,7 @@ body {
 
 				&:hover {
 					box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+					cursor: pointer;
 				}
 
 				&:active {
@@ -345,6 +353,7 @@ body {
 
 					&:hover {
 						box-shadow: 0px 5px 10px 0px rgba(87, 111, 114, 1);
+						cursor: pointer;
 					}
 
 					&:active {
@@ -356,6 +365,8 @@ body {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				color: #576f72;
+				margin: 20px;
 
 				#sortAll,
 				#sortAuthor,
@@ -363,7 +374,19 @@ body {
 				#sortPrice {
 					margin: 5px;
 				}
+
+				p:hover {
+					color: #7d9d9c;
+					cursor: pointer;
+				}
 			}
 		}
 	}
 }
+
+@media screen and (max-width: 420px) {
+	.book {
+		flex-direction: column;
+		align-items: center;
+	}
+} ;
