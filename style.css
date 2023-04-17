@@ -187,7 +187,7 @@ body .container .book {
   display: flex;
 }
 body .container .book .topContainer {
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   width: 50%;
 }
 body .container .book .topContainer img {
@@ -297,21 +297,18 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
   }
   #myLinks .innerContainer #searchingForm {
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
   #myLinks .innerContainer #searchingForm #search {
-    margin: 0 10px 10px 10px;
     padding: 10px;
     border: 1px solid #7d9d9c;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     font-family: "Roboto Slab", serif;
   }
   #myLinks .innerContainer #searchingForm #searchingButton {
     padding: 10px;
-    margin-bottom: 5px;
     border: 1px solid #576f72;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     font-family: "Roboto Slab", serif;
     background-color: #576f72;
     color: #f0ebe3;
@@ -342,8 +339,25 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
   }
 }
 @media screen and (max-width: 420px) {
-  .book {
+  body .container .book {
     flex-direction: column;
     align-items: center;
+    background-color: #f0ebe3;
+  }
+  body .container .book .topContainer {
+    padding: 10px 10px 0 10px;
+    background-color: #e4dccf;
+    width: 90%;
+  }
+  body .container .book .bottomContainer {
+    margin-top: 0px;
+    border: 10px solid #e4dccf;
+    width: 90%;
+  }
+  body .container .book .bottomContainer h4 {
+    margin: 5px 0;
+  }
+  body .container .book .bottomContainer .buttons {
+    margin-bottom: 10px;
   }
 }/*# sourceMappingURL=style.css.map */
