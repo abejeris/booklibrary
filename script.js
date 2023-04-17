@@ -19,6 +19,7 @@ const editButton = document.querySelector("#bookEdit");
 const deleteButton = document.querySelector("#bookDelete");
 const topAddButton = document.querySelector("#topAddButton");
 const searchButton = document.querySelector("#searchButton");
+const searchInput = document.querySelector("#search");
 
 topAddButton.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
@@ -149,14 +150,19 @@ addButtonMobile.addEventListener("click", function () {
 	div.classList.toggle("hidden");
 });
 
-searchButton.addEventListener("click", searchMovies);
+searchInput.addEventListener("input", function () {
+	localStorage.removeItem("searched");
+});
 
-function searchMovies(e) {
+searchButton.addEventListener("click", searchBooks);
+
+function searchBooks(e) {
 	e.preventDefault();
 	const searchInput = document.querySelector("#search").value.toLowerCase();
 	const addedBooks = JSON.parse(localStorage.getItem("books"));
+	const searchForm = document.querySelector("#searchForm");
 	let foundBooks = null;
-
+	let searchedBooks = JSON.parse(localStorage.getItem("searched")) || [];
 	for (let i = 0; i < addedBooks.length; i++) {
 		if (
 			addedBooks[i].title.toLowerCase().includes(searchInput) ||
@@ -166,9 +172,45 @@ function searchMovies(e) {
 			addedBooks[i].price.includes(searchInput)
 		) {
 			foundBooks = addedBooks[i];
-			console.log(foundBooks);
-		} else {
-			console.log("nothing found");
+			searchedBooks.push(foundBooks);
+			localStorage.setItem("searched", JSON.stringify(searchedBooks));
+			container.innerHTML = "";
+			for (let i = 0; i < searchedBooks.length; i++) {
+				const book = searchedBooks[i];
+				const bookDiv = document.createElement("div");
+				bookDiv.classList.add("book");
+				const topContainer = document.createElement("div");
+				topContainer.classList.add("topContainer");
+				const image = document.createElement("img");
+				image.src = book.cover;
+				image.alt = "book cover";
+				const bottomContainer = document.createElement("div");
+				bottomContainer.classList.add("bottomContainer");
+				const title = document.createElement("h4");
+				title.classList.add("title");
+				title.textContent = book.title;
+				const author = document.createElement("h4");
+				author.classList.add("author");
+				author.textContent = book.author;
+				const category = document.createElement("h4");
+				category.classList.add("category");
+				category.textContent = book.category;
+				const year = document.createElement("h4");
+				year.classList.add("year");
+				year.textContent = book.year;
+				const price = document.createElement("h4");
+				price.classList.add("price");
+				price.textContent = `$ ${book.price}`;
+				const buttons = document.createElement("div");
+				buttons.classList.add("buttons");
+				buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button> 
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+				topContainer.append(image);
+				bottomContainer.append(title, author, category, year, price, buttons);
+				bookDiv.append(topContainer, bottomContainer);
+				container.append(bookDiv);
+				searchForm.reset();
+			}
 		}
 	}
 }
