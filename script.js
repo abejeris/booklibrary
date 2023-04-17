@@ -18,6 +18,7 @@ const bookContainer = document.querySelector(".book");
 const editButton = document.querySelector("#bookEdit");
 const deleteButton = document.querySelector("#bookDelete");
 const topAddButton = document.querySelector("#topAddButton");
+const searchButton = document.querySelector("#searchButton");
 
 topAddButton.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
@@ -147,3 +148,27 @@ addButtonMobile.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
 	div.classList.toggle("hidden");
 });
+
+searchButton.addEventListener("click", searchMovies);
+
+function searchMovies(e) {
+	e.preventDefault();
+	const searchInput = document.querySelector("#search").value.toLowerCase();
+	const addedBooks = JSON.parse(localStorage.getItem("books"));
+	let foundBooks = null;
+
+	for (let i = 0; i < addedBooks.length; i++) {
+		if (
+			addedBooks[i].title.toLowerCase().includes(searchInput) ||
+			addedBooks[i].author.toLowerCase().includes(searchInput) ||
+			addedBooks[i].category.toLowerCase().includes(searchInput) ||
+			addedBooks[i].year.includes(searchInput) ||
+			addedBooks[i].price.includes(searchInput)
+		) {
+			foundBooks = addedBooks[i];
+			console.log(foundBooks);
+		} else {
+			console.log("nothing found");
+		}
+	}
+}
