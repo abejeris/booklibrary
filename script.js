@@ -113,23 +113,18 @@ function deleteBook(index) {
 }
 
 function editBook(index) {
-	let book = addedBooks[index];
-	let isSearched = searchedBooks[index];
-	if (addedBooks.find((book) => book === isSearched)) {
-		let newTitle = prompt("Edit the Title", isSearched.title);
-		book.title = newTitle;
-		let newAuthor = prompt("Edit the Author", isSearched.author);
-		book.author = newAuthor;
-		let newCategory = prompt("Edit the Category", isSearched.category);
-		book.category = newCategory;
-		let newYear = prompt("Edit the Year", isSearched.year);
-		book.year = newYear;
-		let newPrice = prompt("Edit the Price", isSearched.price);
-		book.price = newPrice;
-		let newCover = prompt("Edit the Cover", isSearched.cover);
-		book.cover = newCover;
-		localStorage.setItem("books", JSON.stringify(addedBooks));
-	} else {
+	if (localStorage.getItem("searched")) {
+		let searchedBooks = JSON.parse(localStorage.getItem("searched")) || [];
+		let isSearched = searchedBooks[index];
+		console.log(isSearched);
+		Array.prototype.indexOfObject = function (property, value) {
+			for (let i = 0; i < addedBooks.length; i++) {
+				if (this[i][property] === value) return i;
+			}
+			return -1;
+		};
+		let book = addedBooks[addedBooks.indexOfObject("title", isSearched.title)];
+		console.log(book);
 		let newTitle = prompt("Edit the Title", book.title);
 		book.title = newTitle;
 		let newAuthor = prompt("Edit the Author", book.author);
@@ -143,8 +138,25 @@ function editBook(index) {
 		let newCover = prompt("Edit the Cover", book.cover);
 		book.cover = newCover;
 		localStorage.setItem("books", JSON.stringify(addedBooks));
+		displayBooks();
+		localStorage.removeItem("searched");
+	} else {
+		let booker = addedBooks[index];
+		let newTitle = prompt("Edit the Title", booker.title);
+		booker.title = newTitle;
+		let newAuthor = prompt("Edit the Author", booker.author);
+		booker.author = newAuthor;
+		let newCategory = prompt("Edit the Category", booker.category);
+		booker.category = newCategory;
+		let newYear = prompt("Edit the Year", booker.year);
+		booker.year = newYear;
+		let newPrice = prompt("Edit the Price", booker.price);
+		booker.price = newPrice;
+		let newCover = prompt("Edit the Cover", booker.cover);
+		booker.cover = newCover;
+		localStorage.setItem("books", JSON.stringify(addedBooks));
+		displayBooks();
 	}
-	displayBooks();
 }
 
 displayBooks();
