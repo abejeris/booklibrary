@@ -21,6 +21,8 @@ const deleteButton = document.querySelector("#bookDelete");
 const topAddButton = document.querySelector("#topAddButton");
 const searchButton = document.querySelector("#searchButton");
 const searchInput = document.querySelector("#search");
+const mobileSearchButton = document.querySelector("#searchingButton");
+const mobileSearchInput = document.querySelector("#searchMobile");
 
 topAddButton.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
@@ -158,7 +160,6 @@ function editBook(index) {
 			return -1;
 		};
 		let book = addedBooks[addedBooks.indexOfObject("title", isSearched.title)];
-		console.log(book);
 		let newTitle = prompt("Edit the Title", book.title);
 		book.title = newTitle;
 		let newAuthor = prompt("Edit the Author", book.author);
@@ -272,6 +273,69 @@ function searchBooks(e) {
 				bookDiv.append(topContainer, bottomContainer);
 				container.append(bookDiv);
 				searchForm.reset();
+			}
+		}
+	}
+}
+
+mobileSearchButton.addEventListener("click", searchBooks);
+
+function searchBooks(e) {
+	e.preventDefault();
+	const mobileSearchInput = document
+		.querySelector("#searchMobile")
+		.value.toLowerCase();
+	const addedBooks = JSON.parse(localStorage.getItem("books"));
+	const mobileSearchForm = document.querySelector("#searchingForm");
+	let foundBooks = null;
+	let searchedBooks = JSON.parse(localStorage.getItem("searched")) || [];
+	for (let i = 0; i < addedBooks.length; i++) {
+		if (
+			addedBooks[i].title.toLowerCase().includes(mobileSearchInput) ||
+			addedBooks[i].author.toLowerCase().includes(mobileSearchInput) ||
+			addedBooks[i].category.toLowerCase().includes(mobileSearchInput) ||
+			addedBooks[i].year.includes(mobileSearchInput) ||
+			addedBooks[i].price.includes(mobileSearchInput)
+		) {
+			foundBooks = addedBooks[i];
+			searchedBooks.push(foundBooks);
+			localStorage.setItem("searched", JSON.stringify(searchedBooks));
+			container.innerHTML = "";
+			for (let i = 0; i < searchedBooks.length; i++) {
+				const book = searchedBooks[i];
+				const bookDiv = document.createElement("div");
+				bookDiv.classList.add("book");
+				const topContainer = document.createElement("div");
+				topContainer.classList.add("topContainer");
+				const image = document.createElement("img");
+				image.src = book.cover;
+				image.alt = "book cover";
+				const bottomContainer = document.createElement("div");
+				bottomContainer.classList.add("bottomContainer");
+				const title = document.createElement("h4");
+				title.classList.add("title");
+				title.textContent = book.title;
+				const author = document.createElement("h4");
+				author.classList.add("author");
+				author.textContent = book.author;
+				const category = document.createElement("h4");
+				category.classList.add("category");
+				category.textContent = book.category;
+				const year = document.createElement("h4");
+				year.classList.add("year");
+				year.textContent = book.year;
+				const price = document.createElement("h4");
+				price.classList.add("price");
+				price.textContent = `$ ${book.price}`;
+				const buttons = document.createElement("div");
+				buttons.classList.add("buttons");
+				buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button> 
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+				topContainer.append(image);
+				bottomContainer.append(title, author, category, year, price, buttons);
+				bookDiv.append(topContainer, bottomContainer);
+				container.append(bookDiv);
+				mobileSearchForm.reset();
 			}
 		}
 	}
