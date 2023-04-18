@@ -61,6 +61,24 @@ addButton.addEventListener("click", function (e) {
 		addNewBookText.textContent = "PLEASE CHECK ALL VALUES";
 		addNewBookText.style.color = "#e4dccf";
 	}
+	bookTitle.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
+	bookAuthor.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
+	bookCategory.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
+	bookYear.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
+	bookPrice.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
+	bookCover.addEventListener("input", function () {
+		addNewBookText.textContent = "";
+	});
 });
 
 function displayBooks() {
@@ -107,16 +125,32 @@ function displayBooks() {
 }
 
 function deleteBook(index) {
-	addedBooks.splice(index, 1);
-	localStorage.setItem("books", JSON.stringify(addedBooks));
-	displayBooks();
+	if (localStorage.getItem("searched")) {
+		console.log(index);
+		let searchBooks = JSON.parse(localStorage.getItem("searched")) || [];
+		let isSearched = searchBooks[index];
+		Array.prototype.indexOfObject = function (property, value) {
+			for (let i = 0; i < addedBooks.length; i++) {
+				if (this[i][property] === value) return i;
+			}
+			return -1;
+		};
+		addedBooks.splice(addedBooks.indexOfObject("title", isSearched.title), 1);
+		localStorage.setItem("books", JSON.stringify(addedBooks));
+		displayBooks();
+		localStorage.removeItem("searched");
+	} else {
+		addedBooks.splice(index, 1);
+		localStorage.setItem("books", JSON.stringify(addedBooks));
+		displayBooks();
+		localStorage.removeItem("searched");
+	}
 }
 
 function editBook(index) {
 	if (localStorage.getItem("searched")) {
 		let searchedBooks = JSON.parse(localStorage.getItem("searched")) || [];
 		let isSearched = searchedBooks[index];
-		console.log(isSearched);
 		Array.prototype.indexOfObject = function (property, value) {
 			for (let i = 0; i < addedBooks.length; i++) {
 				if (this[i][property] === value) return i;
@@ -158,8 +192,6 @@ function editBook(index) {
 		displayBooks();
 	}
 }
-
-displayBooks();
 
 function myFunction() {
 	const drop = document.querySelector("#myLinks");
@@ -244,3 +276,5 @@ function searchBooks(e) {
 		}
 	}
 }
+
+displayBooks();
