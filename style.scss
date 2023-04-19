@@ -16,10 +16,14 @@ body {
 		align-items: center;
 
 		h2 {
-			font-size: 18px;
-			color: #f0ebe3;
-			text-align: center;
-			margin: 15px;
+			#home {
+				font-size: 18px;
+				color: #f0ebe3;
+				text-align: center;
+				margin: 15px;
+				display: block;
+				text-decoration: none;
+			}
 		}
 		#topAddButton {
 			border: 1px solid #576f72;

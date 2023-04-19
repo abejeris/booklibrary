@@ -15,11 +15,13 @@ body nav {
   justify-content: space-evenly;
   align-items: center;
 }
-body nav h2 {
+body nav h2 #home {
   font-size: 18px;
   color: #f0ebe3;
   text-align: center;
   margin: 15px;
+  display: block;
+  text-decoration: none;
 }
 body nav #topAddButton {
   border: 1px solid #576f72;
