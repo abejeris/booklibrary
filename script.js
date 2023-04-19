@@ -29,6 +29,7 @@ const genreSelect = document.querySelector("#sortCategory");
 const mobileAuthorSelect = document.querySelector("#mobileAuthorSelect");
 const mobileGenreSelect = document.querySelector("#mobileSortCategory");
 const priceSelect = document.querySelector("#sortPrice");
+const mobilePriceSelect = document.querySelector("#mobileSortPrice");
 
 topAddButton.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
@@ -187,6 +188,8 @@ mobileAuthorSelect.addEventListener("change", () => {
 			bottomContainer.append(title, author, category, year, price, buttons);
 			bookDiv.append(topContainer, bottomContainer);
 			container.append(bookDiv);
+			mobilePriceSelect.innerHTML =
+				'<option value="all">Price</option><option value="low">Low to high</option><option value="high">High to low</option>';
 		}
 	} else {
 		displayBooks();
@@ -436,9 +439,6 @@ function editBook(index) {
 		book.cover = newCover;
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
-		const authorSelect = document.querySelector("#authorSelect");
-		authorSelect.innerHTML = '<option value="all">Author</option>';
-		addAuthor();
 		localStorage.removeItem("searched");
 	} else {
 		let booker = addedBooks[index];
@@ -459,6 +459,8 @@ function editBook(index) {
 		const authorSelect = document.querySelector("#authorSelect");
 		authorSelect.innerHTML = '<option value="all">Author</option>';
 		addAuthor();
+		genreSelect.innerHTML = '<option value="all">Genre</option>';
+		addGenre();
 	}
 }
 
@@ -613,6 +615,91 @@ function searchMobileBooks(e) {
 }
 priceSelect.addEventListener("change", () => {
 	const selectedPrice = priceSelect.value;
+	const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
+	let pricedBooks = addedBooks;
+	if (selectedPrice === "low") {
+		pricedBooks = addedBooks.sort((a, b) => a.price - b.price);
+		container.innerHTML = "";
+		for (let i = 0; i < pricedBooks.length; i++) {
+			const book = pricedBooks[i];
+			const bookDiv = document.createElement("div");
+			bookDiv.classList.add("book");
+			const topContainer = document.createElement("div");
+			topContainer.classList.add("topContainer");
+			const image = document.createElement("img");
+			image.src = book.cover;
+			image.alt = "book cover";
+			const bottomContainer = document.createElement("div");
+			bottomContainer.classList.add("bottomContainer");
+			const title = document.createElement("h4");
+			title.classList.add("title");
+			title.textContent = book.title;
+			const author = document.createElement("h4");
+			author.classList.add("author");
+			author.textContent = book.author;
+			const category = document.createElement("h4");
+			category.classList.add("category");
+			category.textContent = book.category;
+			const year = document.createElement("h4");
+			year.classList.add("year");
+			year.textContent = book.year;
+			const price = document.createElement("h4");
+			price.classList.add("price");
+			price.textContent = `$ ${book.price}`;
+			const buttons = document.createElement("div");
+			buttons.classList.add("buttons");
+			buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button>
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+			topContainer.append(image);
+			bottomContainer.append(title, author, category, year, price, buttons);
+			bookDiv.append(topContainer, bottomContainer);
+			container.append(bookDiv);
+		}
+	} else if (selectedPrice === "high") {
+		pricedBooks = addedBooks.sort((a, b) => b.price - a.price);
+		container.innerHTML = "";
+		for (let i = 0; i < pricedBooks.length; i++) {
+			const book = pricedBooks[i];
+			const bookDiv = document.createElement("div");
+			bookDiv.classList.add("book");
+			const topContainer = document.createElement("div");
+			topContainer.classList.add("topContainer");
+			const image = document.createElement("img");
+			image.src = book.cover;
+			image.alt = "book cover";
+			const bottomContainer = document.createElement("div");
+			bottomContainer.classList.add("bottomContainer");
+			const title = document.createElement("h4");
+			title.classList.add("title");
+			title.textContent = book.title;
+			const author = document.createElement("h4");
+			author.classList.add("author");
+			author.textContent = book.author;
+			const category = document.createElement("h4");
+			category.classList.add("category");
+			category.textContent = book.category;
+			const year = document.createElement("h4");
+			year.classList.add("year");
+			year.textContent = book.year;
+			const price = document.createElement("h4");
+			price.classList.add("price");
+			price.textContent = `$ ${book.price}`;
+			const buttons = document.createElement("div");
+			buttons.classList.add("buttons");
+			buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button>
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+			topContainer.append(image);
+			bottomContainer.append(title, author, category, year, price, buttons);
+			bookDiv.append(topContainer, bottomContainer);
+			container.append(bookDiv);
+		}
+	} else {
+		displayBooks();
+	}
+});
+
+mobilePriceSelect.addEventListener("change", () => {
+	const selectedPrice = mobilePriceSelect.value;
 	const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
 	let pricedBooks = addedBooks;
 	if (selectedPrice === "low") {
