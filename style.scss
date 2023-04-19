@@ -380,10 +380,18 @@ body {
 					color: #576f72;
 					margin: 20px;
 
-					#sortAll,
-					#sortAuthor,
+					#authorSelect,
 					#sortCategory,
 					#sortPrice {
+						margin: 5px;
+						width: 100%;
+						padding: 5px;
+						border: 1px solid #576f72;
+						border-radius: 5px;
+						font-family: "Roboto Slab", serif;
+						color: #576f72;
+					}
+					#sortAll {
 						margin: 5px;
 					}
 

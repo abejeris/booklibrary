@@ -338,10 +338,18 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     color: #576f72;
     margin: 20px;
   }
-  body #myLinks .innerContainer .sorting #sortAll,
-  body #myLinks .innerContainer .sorting #sortAuthor,
+  body #myLinks .innerContainer .sorting #authorSelect,
   body #myLinks .innerContainer .sorting #sortCategory,
   body #myLinks .innerContainer .sorting #sortPrice {
+    margin: 5px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #576f72;
+    border-radius: 5px;
+    font-family: "Roboto Slab", serif;
+    color: #576f72;
+  }
+  body #myLinks .innerContainer .sorting #sortAll {
     margin: 5px;
   }
   body #myLinks .innerContainer .sorting p:hover {
