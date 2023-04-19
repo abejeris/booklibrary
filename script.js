@@ -379,7 +379,6 @@ function addMobileGenre() {
 
 function deleteBook(index) {
 	if (localStorage.getItem("searched")) {
-		console.log(index);
 		let searchBooks = JSON.parse(localStorage.getItem("searched")) || [];
 		let isSearched = searchBooks[index];
 		Array.prototype.indexOfObject = function (property, value) {
