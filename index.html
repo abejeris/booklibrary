@@ -33,11 +33,22 @@
 			</form>
 			<div class="sort">
 				<h4 id="sortAll">Sort by:</h4>
-				<p id="sortAuthor">Author</p>
-				<p id="sortCategory">Genre</p>
-				<p id="sortPrice">Price</p>
+				<label for="authorSelect">Author</label>
+				<select id="authorSelect">
+					<option value="">All</option>
+				</select>
+				<label for="sortCategory">Genre</label>
+				<select id="sortCategory">
+					<option value="">All</option>
+				</select>
+				<label for="sortPrice">Price</label>
+				<select id="sortPrice">
+					<option value="all">Default order</option>
+					<option value="dog">Low to high</option>
+					<option value="cat">High to low</option>
+				</select>
 			</div>
-			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<a href="javascript:void(0);" class="icon" onclick="burgerMenu()">
 				<i class="fa-solid fa-bars"></i>
 			</a>
 		</nav>
@@ -58,6 +69,9 @@
 				<div class="sorting">
 					<h4 id="sortAll">Sort by:</h4>
 					<p id="sortAuthor">Author</p>
+					<!-- <select id="authorSelect">
+						<option value="">All</option>
+					</select> -->
 					<p id="sortCategory">Genre</p>
 					<p id="sortPrice">Price</p>
 				</div>

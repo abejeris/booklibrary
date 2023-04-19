@@ -84,13 +84,20 @@ body {
 				margin: 5px;
 				color: #576f72;
 			}
-			p {
+			label {
 				margin: 5px;
 
 				&:hover {
 					color: #f0ebe3;
 					cursor: pointer;
 				}
+			}
+			select {
+				margin-right: 10px;
+				border-radius: 5px;
+				padding: 5px;
+				font-family: "Roboto Slab", sans-serif;
+				color: #576f72;
 			}
 		}
 	}
@@ -294,7 +301,8 @@ body {
 
 	.sort {
 		h4,
-		p {
+		label,
+		select {
 			display: none;
 		}
 	}
