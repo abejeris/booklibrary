@@ -58,6 +58,8 @@ addButton.addEventListener("click", function (e) {
 		addedBooks.push(newBook);
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
+		addAuthor();
+		addGenre();
 		addBook.reset();
 	} else {
 		addNewBookText.textContent = "PLEASE CHECK ALL VALUES";
@@ -124,6 +126,30 @@ function displayBooks() {
 		noBookText.innerHTML =
 			"No books to display, please add more books to your list";
 	} else noBookText.innerHTML = "";
+}
+
+function addAuthor() {
+	addedBooks.forEach((book) => {
+		const authorSelect = document.querySelector("#authorSelect");
+		const select = document.createElement("option");
+		select.setAttribute("value", `${book.author}`);
+		select.id = `${book.author}`;
+		const text = document.createTextNode(`${book.author}`);
+		select.append(text);
+		authorSelect.appendChild(select);
+	});
+}
+
+function addGenre() {
+	addedBooks.forEach((book) => {
+		const genreSelect = document.querySelector("#sortCategory");
+		const select = document.createElement("option");
+		select.setAttribute("value", `${book.category}`);
+		select.id = `${book.category}`;
+		const text = document.createTextNode(`${book.category}`);
+		select.append(text);
+		genreSelect.appendChild(select);
+	});
 }
 
 function deleteBook(index) {
@@ -194,7 +220,7 @@ function editBook(index) {
 	}
 }
 
-function myFunction() {
+function burgerMenu() {
 	const drop = document.querySelector("#myLinks");
 	const icon = document.querySelector(".icon");
 	if (drop.style.display === "block") {
@@ -342,3 +368,5 @@ function searchBooks(e) {
 }
 
 displayBooks();
+addAuthor();
+addGenre();

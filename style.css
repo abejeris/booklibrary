@@ -81,12 +81,19 @@ body nav .sort h4 {
   margin: 5px;
   color: #576f72;
 }
-body nav .sort p {
+body nav .sort label {
   margin: 5px;
 }
-body nav .sort p:hover {
+body nav .sort label:hover {
   color: #f0ebe3;
   cursor: pointer;
+}
+body nav .sort select {
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Roboto Slab", sans-serif;
+  color: #576f72;
 }
 body #myLinks {
   display: none;
@@ -266,7 +273,8 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     display: none;
   }
   .sort h4,
-  .sort p {
+  .sort label,
+  .sort select {
     display: none;
   }
   .icon {
