@@ -338,9 +338,9 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
     color: #576f72;
     margin: 20px;
   }
-  body #myLinks .innerContainer .sorting #authorSelect,
-  body #myLinks .innerContainer .sorting #sortCategory,
-  body #myLinks .innerContainer .sorting #sortPrice {
+  body #myLinks .innerContainer .sorting #mobileAuthorSelect,
+  body #myLinks .innerContainer .sorting #mobileSortCategory,
+  body #myLinks .innerContainer .sorting #mobileSortPrice {
     margin: 5px;
     width: 100%;
     padding: 5px;

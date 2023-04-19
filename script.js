@@ -26,6 +26,8 @@ const mobileSearchButton = document.querySelector("#searchingButton");
 const mobileSearchInput = document.querySelector("#searchMobile");
 const authorSelect = document.querySelector("#authorSelect");
 const genreSelect = document.querySelector("#sortCategory");
+const mobileAuthorSelect = document.querySelector("#mobileAuthorSelect");
+const mobileGenreSelect = document.querySelector("#mobileSortCategory");
 
 topAddButton.addEventListener("click", function () {
 	const div = document.querySelector(".addmaster");
@@ -60,11 +62,17 @@ addButton.addEventListener("click", function (e) {
 		};
 		const authorSelect = document.querySelector("#authorSelect");
 		authorSelect.innerHTML = '<option value="all">Author</option>';
+		const mobileAuthorSelect = document.querySelector("#mobileAuthorSelect");
+		mobileAuthorSelect.innerHTML = '<option value="all">Author</option>';
+		genreSelect.innerHTML = '<option value="all">Genre</option>';
+		mobileGenreSelect.innerHTML = '<option value="all">Genre</option>';
 		addedBooks.push(newBook);
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
 		addAuthor();
 		addGenre();
+		addMobileAuthor();
+		addMobileGenre();
 		addBook.reset();
 	} else {
 		addNewBookText.textContent = "PLEASE CHECK ALL VALUES";
@@ -137,8 +145,101 @@ authorSelect.addEventListener("change", () => {
 	}
 });
 
+mobileAuthorSelect.addEventListener("change", () => {
+	const selectedAuthor = mobileAuthorSelect.value;
+	const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
+	let authorBooks = addedBooks;
+	if (selectedAuthor !== "all") {
+		authorBooks = addedBooks.filter((book) => book.author === selectedAuthor);
+		container.innerHTML = "";
+		for (let i = 0; i < authorBooks.length; i++) {
+			const book = authorBooks[i];
+			const bookDiv = document.createElement("div");
+			bookDiv.classList.add("book");
+			const topContainer = document.createElement("div");
+			topContainer.classList.add("topContainer");
+			const image = document.createElement("img");
+			image.src = book.cover;
+			image.alt = "book cover";
+			const bottomContainer = document.createElement("div");
+			bottomContainer.classList.add("bottomContainer");
+			const title = document.createElement("h4");
+			title.classList.add("title");
+			title.textContent = book.title;
+			const author = document.createElement("h4");
+			author.classList.add("author");
+			author.textContent = book.author;
+			const category = document.createElement("h4");
+			category.classList.add("category");
+			category.textContent = book.category;
+			const year = document.createElement("h4");
+			year.classList.add("year");
+			year.textContent = book.year;
+			const price = document.createElement("h4");
+			price.classList.add("price");
+			price.textContent = `$ ${book.price}`;
+			const buttons = document.createElement("div");
+			buttons.classList.add("buttons");
+			buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button> 
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+			topContainer.append(image);
+			bottomContainer.append(title, author, category, year, price, buttons);
+			bookDiv.append(topContainer, bottomContainer);
+			container.append(bookDiv);
+		}
+	} else {
+		displayBooks();
+	}
+});
+
 genreSelect.addEventListener("change", () => {
 	const selectedGenre = genreSelect.value;
+	const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
+	let genreBooks = addedBooks;
+	if (selectedGenre !== "all") {
+		genreBooks = addedBooks.filter((book) => book.category === selectedGenre);
+		container.innerHTML = "";
+		for (let i = 0; i < genreBooks.length; i++) {
+			const book = genreBooks[i];
+			const bookDiv = document.createElement("div");
+			bookDiv.classList.add("book");
+			const topContainer = document.createElement("div");
+			topContainer.classList.add("topContainer");
+			const image = document.createElement("img");
+			image.src = book.cover;
+			image.alt = "book cover";
+			const bottomContainer = document.createElement("div");
+			bottomContainer.classList.add("bottomContainer");
+			const title = document.createElement("h4");
+			title.classList.add("title");
+			title.textContent = book.title;
+			const author = document.createElement("h4");
+			author.classList.add("author");
+			author.textContent = book.author;
+			const category = document.createElement("h4");
+			category.classList.add("category");
+			category.textContent = book.category;
+			const year = document.createElement("h4");
+			year.classList.add("year");
+			year.textContent = book.year;
+			const price = document.createElement("h4");
+			price.classList.add("price");
+			price.textContent = `$ ${book.price}`;
+			const buttons = document.createElement("div");
+			buttons.classList.add("buttons");
+			buttons.innerHTML = `<button class="bookEdit" onclick="editBook(${i})">EDIT</button> 
+			<button class="bookDelete" onclick="deleteBook(${i})">DELETE</button>`;
+			topContainer.append(image);
+			bottomContainer.append(title, author, category, year, price, buttons);
+			bookDiv.append(topContainer, bottomContainer);
+			container.append(bookDiv);
+		}
+	} else {
+		displayBooks();
+	}
+});
+mobileGenreSelect.addEventListener("change", () => {
+	const selectedGenre = mobileGenreSelect.value;
 	const addedBooks = JSON.parse(localStorage.getItem("books")) || [];
 	let genreBooks = addedBooks;
 	if (selectedGenre !== "all") {
@@ -239,6 +340,18 @@ function addAuthor() {
 	});
 }
 
+function addMobileAuthor() {
+	addedBooks.forEach((book) => {
+		const mobileAuthorSelect = document.querySelector("#mobileAuthorSelect");
+		const select = document.createElement("option");
+		select.setAttribute("value", `${book.author}`);
+		select.id = `${book.author}`;
+		const text = document.createTextNode(`${book.author}`);
+		select.append(text);
+		mobileAuthorSelect.appendChild(select);
+	});
+}
+
 function addGenre() {
 	addedBooks.forEach((book) => {
 		const genreSelect = document.querySelector("#sortCategory");
@@ -248,6 +361,18 @@ function addGenre() {
 		const text = document.createTextNode(`${book.category}`);
 		select.append(text);
 		genreSelect.appendChild(select);
+	});
+}
+
+function addMobileGenre() {
+	addedBooks.forEach((book) => {
+		const mobileGenreSelect = document.querySelector("#mobileSortCategory");
+		const select = document.createElement("option");
+		select.setAttribute("value", `${book.category}`);
+		select.id = `${book.category}`;
+		const text = document.createTextNode(`${book.category}`);
+		select.append(text);
+		mobileGenreSelect.appendChild(select);
 	});
 }
 
@@ -490,3 +615,5 @@ function searchMobileBooks(e) {
 displayBooks();
 addAuthor();
 addGenre();
+addMobileGenre();
+addMobileAuthor();
