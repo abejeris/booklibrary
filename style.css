@@ -9,19 +9,17 @@ body {
   font-family: "Roboto Slab", serif;
 }
 body nav {
-  height: 100px;
   background-color: #7d9d9c;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  padding-bottom: 5px;
 }
 body nav h2 {
   font-size: 18px;
   color: #f0ebe3;
   text-align: center;
-  margin: 5px;
+  margin: 15px;
 }
 body nav #topAddButton {
   border: 1px solid #576f72;
@@ -75,8 +73,9 @@ body nav a {
 body nav .sort {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 10px;
 }
 body nav .sort h4 {
   margin: 5px;
@@ -95,6 +94,7 @@ body nav .sort select {
   padding: 5px;
   font-family: "Roboto Slab", sans-serif;
   color: #576f72;
+  width: 100px;
 }
 body #myLinks {
   display: none;
@@ -264,7 +264,7 @@ body .container .book .bottomContainer .buttons .bookDelete:active {
   color: #7d9d9c;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 585px) {
   body nav #topAddButton,
   body nav #addNewBook {
     display: none;
