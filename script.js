@@ -242,6 +242,9 @@ addButtonMobile.addEventListener("click", function () {
 searchInput.addEventListener("input", function () {
 	localStorage.removeItem("searched");
 });
+mobileSearchInput.addEventListener("input", function () {
+	localStorage.removeItem("searched");
+});
 
 searchButton.addEventListener("click", searchBooks);
 
@@ -304,9 +307,9 @@ function searchBooks(e) {
 	}
 }
 
-mobileSearchButton.addEventListener("click", searchBooks);
+mobileSearchButton.addEventListener("click", searchMobileBooks);
 
-function searchBooks(e) {
+function searchMobileBooks(e) {
 	e.preventDefault();
 	const mobileSearchInput = document
 		.querySelector("#searchMobile")
