@@ -1,5 +1,6 @@
 let addedBooks = JSON.parse(localStorage.getItem("books")) || [];
 let searchedBooks = JSON.parse(localStorage.getItem("searched")) || [];
+let authorBooks = JSON.parse(localStorage.getItem("author")) || [];
 const noBookText = document.querySelector("#noBookText");
 const addBook = document.querySelector("#add");
 const addNewBookText = document.querySelector("#addNewBook");
@@ -57,6 +58,8 @@ addButton.addEventListener("click", function (e) {
 			price: price,
 			cover: cover,
 		};
+		const authorSelect = document.querySelector("#authorSelect");
+		authorSelect.innerHTML = '<option value="all">Author</option>';
 		addedBooks.push(newBook);
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
@@ -129,6 +132,8 @@ authorSelect.addEventListener("change", () => {
 			bookDiv.append(topContainer, bottomContainer);
 			container.append(bookDiv);
 		}
+	} else {
+		displayBooks();
 	}
 });
 
@@ -174,6 +179,8 @@ genreSelect.addEventListener("change", () => {
 			bookDiv.append(topContainer, bottomContainer);
 			container.append(bookDiv);
 		}
+	} else {
+		displayBooks();
 	}
 });
 
@@ -258,11 +265,23 @@ function deleteBook(index) {
 		addedBooks.splice(addedBooks.indexOfObject("title", isSearched.title), 1);
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
+		const authorSelect = document.querySelector("#authorSelect");
+		authorSelect.innerHTML = '<option value="all">Author</option>';
+		addAuthor();
+		const genreSelect = document.querySelector("#genreSelect");
+		genreSelect.innerHTML = '<option value="all">Genre</option>';
+		addGenre();
 		localStorage.removeItem("searched");
 	} else {
 		addedBooks.splice(index, 1);
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
+		const authorSelect = document.querySelector("#authorSelect");
+		authorSelect.innerHTML = '<option value="all">Author</option>';
+		addAuthor();
+		const genreSelect = document.querySelector("#genreSelect");
+		genreSelect.innerHTML = '<option value="all">Genre</option>';
+		addGenre();
 		localStorage.removeItem("searched");
 	}
 }
@@ -292,6 +311,9 @@ function editBook(index) {
 		book.cover = newCover;
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
+		const authorSelect = document.querySelector("#authorSelect");
+		authorSelect.innerHTML = '<option value="all">Author</option>';
+		addAuthor();
 		localStorage.removeItem("searched");
 	} else {
 		let booker = addedBooks[index];
@@ -309,6 +331,9 @@ function editBook(index) {
 		booker.cover = newCover;
 		localStorage.setItem("books", JSON.stringify(addedBooks));
 		displayBooks();
+		const authorSelect = document.querySelector("#authorSelect");
+		authorSelect.innerHTML = '<option value="all">Author</option>';
+		addAuthor();
 	}
 }
 
