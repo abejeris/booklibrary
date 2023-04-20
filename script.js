@@ -788,3 +788,4 @@ addAuthor();
 addGenre();
 addMobileGenre();
 addMobileAuthor();
+localStorage.removeItem("searched");
